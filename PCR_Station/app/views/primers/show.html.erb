@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @primer.note %>
+</p>
+
+<p>
+  <strong>Primer seq:</strong>
+  <%= @primer.primer_seq %>
+</p>
+
+<%= link_to 'Edit', edit_primer_path(@primer) %> |
+<%= link_to 'Back', primers_path %>
