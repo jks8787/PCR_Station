@@ -1,26 +1,30 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>PCRStation</title>
-  <%= stylesheet_link_tag    "application", media: "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>PCRStation</title>
+    <%= stylesheet_link_tag    "application", media: "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
 
-<%= yield %>
+  <body>
+    <div class="container">
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+    <%= yield %>
 
-<div id="nav">
-  <% if user_signed_in? %>
-    Signed in as <%= current_user.email %>. Not you?
-    <%= link_to "sign out", destroy_user_session_path, method: :delete%>
-  <% else %>
-    <%= link_to "sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
-  <% end %>
-</div>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
 
-</body>
+    <div id="nav">
+      <% if user_signed_in? %>
+        Signed in as <%= current_user.email %>. Not you?
+        <%= link_to "sign out", destroy_user_session_path, method: :delete%>
+      <% else %>
+        <%= link_to "sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
+      <% end %>
+    </div>
+
+    </div>
+  </body>
+
 </html>
