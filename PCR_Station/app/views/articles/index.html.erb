@@ -5,6 +5,7 @@
     <tr>
       <th>Title</th>
       <th>Author</th>
+      <th>Link</th>
     </tr>
   </thead>
 
@@ -13,10 +14,12 @@
       <tr>
         <td><%= article.title %></td>
         <td><%= article.author %></td>
+        <td><%= link_to 'Link', ("http://www.ncbi.nlm.nih.gov/pubmed/?term=" + "#{article.uid}") %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
+
 

@@ -1,6 +1,6 @@
 require 'net/http'
 require 'open-uri'
-
+cache = ActiveSupport::Cache::MemoryStore.new(expires_in: 10.minutes)
 class Article < ActiveRecord::Base
 	belongs_to :user
 	validates :uid, uniqueness: true
