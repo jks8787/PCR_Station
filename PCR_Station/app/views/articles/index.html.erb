@@ -5,13 +5,13 @@
     <tr>
       <th>Title</th>
       <th>Author</th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
 
   <tbody>
+    <% get_article_uids %>
+    <% get_article_uids %>
+    <% store_articles %>
     <% @articles.each do |article| %>
       <tr>
         <td><%= article.title %></td>

@@ -16,7 +16,6 @@ class PrimersController < ApplicationController
   end
 
   def create
-    binding.pry
     @primer = Primer.new(primer_params)
 
     respond_to do |format|
