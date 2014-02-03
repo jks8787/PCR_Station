@@ -16,7 +16,7 @@
         <td><%= article.title %></td>
         <td><%= article.author %></td>
         <td><%= link_to 'Link', ("http://www.ncbi.nlm.nih.gov/pubmed/?term=" + "#{article.uid}") %></td>
-
+        <td><%= button_to "Save", { :controller => "saved_articles", :action => "create", :article_id => article.id }, method: :post %><td>
       </tr>
     <% end %>
   </tbody>

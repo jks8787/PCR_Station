@@ -1,8 +1,7 @@
 class SavedArticlesController < ApplicationController
 
-	def update
-    @user = User.find(current_user.id)
-    @user.articles << article.find(:id)
+	def create
+    current_user.articles << Article.find(params[:article_id])
 	end
 
 end
