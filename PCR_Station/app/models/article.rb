@@ -2,7 +2,7 @@ require 'net/http'
 require 'open-uri'
 cache = ActiveSupport::Cache::MemoryStore.new(expires_in: 60.minutes)
 class Article < ActiveRecord::Base
-	has_and_belongs_to_many :user
+	has_and_belongs_to_many :users
 	validates :uid, uniqueness: true
 
 	def self.fetch_from_api
