@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   def index
-    uids = Article.fetch_from_api("foo")
+    Article.fetch_from_api
     @articles = Article.all
   end
 end
