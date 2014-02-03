@@ -4,8 +4,8 @@ require 'open-uri'
 class Article < ActiveRecord::Base
 	belongs_to :user
 
-	def self.get_uids
-		uid_url = URI.parse('http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=polymerase chain reaction[mesh]+AND+real time polymerase chain reaction[mesh]+AND+2014[pdat]&usehistory=y')
+	def self.fetch_uids
+		uid_url = URI.parse URI.escape('http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=polymerase chain reaction[mesh]+AND+real time polymerase chain reaction[mesh]+AND+2014[pdat]&usehistory=y')
 
 		uid_xml_data = Net::HTTP.get_response(uid_url).body
 		@uid_array = []
@@ -15,6 +15,8 @@ class Article < ActiveRecord::Base
 		uid_xml.xpath("//Id").each do |uid|
   		@uid_array << uid.content
 		end
+
+		@uid_array
 	end
 
 	def self.get_articles_info

@@ -1,7 +1,8 @@
 class ArticlesController < ApplicationController
 
   def index
-    get_article_uids
+    uids = Article.fetch_uids
+    binding.pry
     store_articles
     @articles = Article.all
   end
