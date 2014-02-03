@@ -14,9 +14,9 @@
 # y = Article.create( title: "PCR and You...(part 2)", author: "Jenny Smith")
 # z = Article.create( title: "PCR and You...(part 3)", author: "Janice Smith")
 
-# a = Primer.create( note: "this is for my new project", primer_seq: "AATTCGGA")
-# b = Primer.create( note: "this is for my project", primer_seq: "AAAAATTTTTCCCCC")
-# c = Primer.create( note: "New Project", primer_seq: "GGGCCCAATT")
+a = Primer.create( note: "this is for my new project", primer_seq: "AATTCGGA")
+b = Primer.create( note: "this is for my project", primer_seq: "AAAAATTTTTCCCCC")
+c = Primer.create( note: "New Project", primer_seq: "GGGCCCAATT")
 
 
 # Janice.articles << x

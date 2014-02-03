@@ -1,17 +1,12 @@
-<p id="notice"><%= notice %></p>
+
 
 <p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
-
-<p>
-  <strong>Email:</strong>
+  <h2>Email:</h2>
   <%= @user.email %>
 </p>
 
 <p>
-  <strong>Articles:</strong>
+  <h2>Articles:</h2>
   <% @user.articles.each do |article| %>
       <ul>
       <li>title:<%= article.title %> author: <%= article.title %></li>
@@ -20,7 +15,7 @@
 </p>
 
 <p>
-  <strong>Primers:</strong>
+  <h2>Primers:</h2>
     <% @user.primers.each do |primer| %>
       <ul class="primers">
       <li class="primer">sequence:<%= primer.primer_seq %> note: <%= primer.note %>(<%= link_to 'Show', primer %>| <%= link_to 'Edit', edit_primer_path(primer) %> | <%= link_to 'Destroy', primer, method: :delete, data: { confirm: 'Are you sure?' } %>)
@@ -30,6 +25,6 @@
 
 </p>
 
-
+<%= link_to 'New Primer', new_primer_path %>
 <%= link_to 'Back', users_path %>
 

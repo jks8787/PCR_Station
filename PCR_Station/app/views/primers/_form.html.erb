@@ -18,6 +18,13 @@
     <%= f.label :primer_seq %><br>
     <%= f.text_area :primer_seq %>
   </div>
+  <div class="hidden filed">
+  <% if user_signed_in? %>
+    <%= hidden_field_tag "user_id", current_user.id %>
+  <% else %>
+    <%= link_to "sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
+  <% end %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

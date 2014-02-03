@@ -16,6 +16,7 @@ class PrimersController < ApplicationController
   end
 
   def create
+    binding.pry
     @primer = Primer.new(primer_params)
 
     respond_to do |format|
@@ -39,9 +40,7 @@ class PrimersController < ApplicationController
 
   def destroy
     @primer.destroy
-    respond_to do |format|
-      redirect_to primers_url
-    end
+    redirect_to primers_url
   end
 
   private
@@ -50,6 +49,11 @@ class PrimersController < ApplicationController
     end
 
     def primer_params
-      params.require(:primer).permit(:note, :primer_seq)
+      permitted = params.require(:primer).permit(:note, :primer_seq)
+      permitted[:user_id] = current_user.id
+      return permitted
     end
 end
+
+
+

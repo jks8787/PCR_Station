@@ -37,13 +37,13 @@ ActiveRecord::Schema.define(version: 20140202212919) do
   add_index "primers", ["user_id"], name: "index_primers_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
-    t.text     "name"
     t.integer  "articles_id"
     t.integer  "primers_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
+    t.string   "name",                   default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
