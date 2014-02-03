@@ -3,4 +3,5 @@ class ArticlesController < ApplicationController
     Article.fetch_from_api
     @articles = Article.all
   end
+
 end
