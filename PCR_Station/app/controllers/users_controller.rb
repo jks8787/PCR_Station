@@ -12,15 +12,6 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def edit
-    @user = User.find(current_user_id)
-  end
-
-  def update
-    @user = User.find(current_user.id)
-    @user.articles << article.find(:id)
-  end
-
   private
     def set_user
       @user = User.find(params[:id])
@@ -31,6 +22,5 @@ class UsersController < ApplicationController
     end
 end
 
-rails g migration CreateArticlesUsersJoinTable
 
-rails g migration RemovePrimersIdFromUsers
+
