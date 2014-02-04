@@ -36,7 +36,9 @@ class PrimersController < ApplicationController
 
   def destroy
     @primer.destroy
-    redirect_to primers_url
+    respond_to do |format|
+      format.html { redirect_to current_user, notice: 'Primer was successfully destroyed.' }
+    end
   end
 
   private
