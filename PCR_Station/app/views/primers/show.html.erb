@@ -5,7 +5,8 @@
 <ul>
 	<li>
 		<h3>Primer seq:</h3>
-			<p><%= @primer.primer_seq.upcase %>
+			<p><%= @primer.primer_seq.upcase %></p>
+			<p><%= @primer.created_at.strftime("created on %m/%d/%Y")  %></p>
 	</li>
 	<li>
 		<h3>Percent GC Content:</h3>

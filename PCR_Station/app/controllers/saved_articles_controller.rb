@@ -7,4 +7,11 @@ class SavedArticlesController < ApplicationController
     end
 	end
 
+	def edit
+    current_user.articles.find(params[:id]).delete
+    respond_to do |format|
+      format.html { redirect_to current_user, notice: 'Article was successfully removed.' }
+    end
+  end
+
 end
