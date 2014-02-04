@@ -17,7 +17,7 @@ class PrimersController < ApplicationController
 
   def create
     @primer = Primer.create(primer_params)
-    @primer = Bio::Sequence::NA.new(@primer.primer_seq).complement
+    @primer[:primer_seq] = Bio::Sequence::NA.new(@primer.primer_seq).complement
     @primer.save
     respond_to do |format|
       format.html { redirect_to current_user, notice: 'Primer was successfully created.' }
