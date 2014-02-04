@@ -6,7 +6,7 @@
 <p>The polymerase chain reaction (PCR) is a biochemical technology in molecular biology to amplify a single or a few copies of a piece of DNA across several orders of magnitude, generating thousands to millions of copies of a particular DNA sequence.
 Developed in 1983 by Kary Mullis, PCR is now a common and often indispensable technique used in medical and biological research labs for a variety of applications. These include DNA cloning for sequencing, DNA-based phylogeny, or functional analysis of genes; the diagnosis of hereditary diseases; the identification of genetic fingerprints (used in forensic sciences and paternity testing); and the detection and diagnosis of infectious diseases. In 1993, Mullis was awarded the Nobel Prize in Chemistry along with Michael Smith for his work on PCR. </p>
 </blockquote>
-<%= link_to 'more information...', "http://en.wikipedia.org/wiki/Polymerase_chain_reaction" %>
+<%= link_to 'more information...', "http://en.wikipedia.org/wiki/Polymerase_chain_reaction", :target => "_blank" %>
 <div class="panel-heading">
 <h2>Top New Publications</h2>
   <h3>the new PubMed Publications Using a PCR method!</h3>
@@ -16,16 +16,14 @@ Developed in 1983 by Kary Mullis, PCR is now a common and often indispensable te
     <tr>
       <th>Title</th>
       <th>Author</th>
-      <th>Link</th>
       <th>Save</th>
     </tr>
   </thead>
   <tbody>
     <% @articles.each do |article| %>
       <tr>
-        <td><%= article.title %></td>
+        <td><%= article.title %> <%= link_to "to the paper...", ("http://www.ncbi.nlm.nih.gov/pubmed/?term=" + "#{article.uid}"), :target => "_blank" %></td>
         <td class="text-justify" ><%= article.author %></td>
-        <td><%= link_to 'Link', ("http://www.ncbi.nlm.nih.gov/pubmed/?term=" + "#{article.uid}") %></td>
         <td><%= link_to "Save", { :controller => "saved_articles", :action => "create", :article_id => article.id }, method: :post, :class => "btn btn-primary btn-sm" %></span><td>
       </tr>
     <% end %>
