@@ -8,8 +8,10 @@
 			<p><%= @primer.primer_seq.upcase %>
 	</li>
 	<li>
-		<h3>CG%:</h3>
-		<p><%= Bio::Sequence::NA.new("#{@primer.primer_seq}").gc_percent %></p>
+		<h3>Percetn GC Content:</h3>
+		<p><%= Bio::Sequence::NA.new("#{@primer.primer_seq}").gc_percent %>% </p>
+		<h3>Length:</h3>
+		<p><%= @primer.primer_seq.length %> bases </p>
 	</li>
 <ul>
 
