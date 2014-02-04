@@ -1,11 +1,12 @@
 <h1>What is PCR Station?</h1>
 <p>PCR station is a rescoures for people to learn about and explore the polymerase chain reaction.</p>
 <p>In it's Most Basic Form PCR is the method a researcher would use to amplify or make many copies of a DNA sequence for study.</p>
-
-<table>
+<div class="panel-heading">
+<h1>Top New Publications</h1>
+  <h3>the new PubMed Publications Using a PCR method!</h3>
+</div>
+<table class="table">
   <thead>
-    <h1>Top New Publications</h1>
-    <h3>the new PubMed Publications Using a PCR method!</h3>
     <tr>
       <th>Title</th>
       <th>Author</th>
@@ -19,7 +20,7 @@
         <td><%= article.title %></td>
         <td><%= article.author %></td>
         <td><%= link_to 'Link', ("http://www.ncbi.nlm.nih.gov/pubmed/?term=" + "#{article.uid}") %></td>
-        <td><%= button_to "Save", { :controller => "saved_articles", :action => "create", :article_id => article.id }, method: :post %><td>
+        <td><%= link_to "Save", { :controller => "saved_articles", :action => "create", :article_id => article.id }, method: :post, :class => "btn btn-primary btn-sm" %></span><td>
       </tr>
     <% end %>
   </tbody>

@@ -6,9 +6,11 @@
 </p>
 
 <p>
-  <table>
+<div class="panel-heading">
+<h2>Saved Articles:</h2>
+</div>
+  <table class="table">
     <thead>
-    <h2>Saved Articles:</h2>
       <tr>
         <th>Title</th>
         <th>Author</th>
@@ -22,7 +24,7 @@
           <td><%= article.title %></td>
           <td><%= article.author %></td>
           <td><%= link_to 'Link', ("http://www.ncbi.nlm.nih.gov/pubmed/?term=" + "#{article.uid}") %></td>
-          <td><%= link_to 'remove', edit_saved_article_path(article.id) %></td>
+          <td><%= link_to 'remove', edit_saved_article_path(article.id), :class => "btn btn-primary btn-sm" %></td>
         </tr>
       <% end %>
     </tbody>

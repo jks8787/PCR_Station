@@ -17,10 +17,10 @@
     <p class="alert"><%= alert %></p>
 
     <div id="nav">
-      | <%= link_to'Your Homepage', user_path(current_user.id) %> |
       <% if user_signed_in? %>
-        | Signed in as <%= current_user.email %> | | Not you?
-        <%= link_to "sign out", destroy_user_session_path, method: :delete%> |
+        | Signed in as <%= current_user.email %> |
+        | <%= link_to'Your Homepage', user_path(current_user.id) %> |
+        | Not you? <%= link_to "sign out", destroy_user_session_path, method: :delete%> |
       <% else %>
        | <%= link_to "sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %> |
       <% end %>
