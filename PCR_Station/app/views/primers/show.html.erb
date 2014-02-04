@@ -1,14 +1,17 @@
-<p id="notice"><%= notice %></p>
+<h1> Primer Summary Page</h1>
+<h3>Note:</h3>
+<p> <%= @primer.note %> </p>
 
-<p>
-  <strong>Note:</strong>
-  <%= @primer.note %>
-</p>
-
-<p>
-  <strong>Primer seq:</strong>
-  <%= @primer.primer_seq %>
-</p>
+<ul>
+	<li>
+		<h3>Primer seq:</h3>
+			<p><%= @primer.primer_seq.upcase %>
+	</li>
+	<li>
+		<h3>CG%:</h3>
+		<p><%= Bio::Sequence::NA.new("#{@primer.primer_seq}").gc_percent %></p>
+	</li>
+<ul>
 
 <%= link_to 'Edit', edit_primer_path(@primer) %> |
 <%= link_to 'Back', primers_path %>
