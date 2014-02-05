@@ -22,9 +22,9 @@ Developed in 1983 by Kary Mullis, PCR is now a common and often indispensable te
   <tbody>
     <% @articles.each do |article| %>
       <tr>
-        <td><%= article.title %> <%= link_to "to the paper...", ("http://www.ncbi.nlm.nih.gov/pubmed/?term=" + "#{article.uid}"), :target => "_blank" %></td>
+        <td><%= article.title %> <br> <%= link_to "to the paper...", ("http://www.ncbi.nlm.nih.gov/pubmed/?term=" + "#{article.uid}"), :target => "_blank" %></td>
         <td class="text-justify" ><%= article.author %></td>
-        <td><%= link_to "Save", { :controller => "saved_articles", :action => "create", :article_id => article.id }, method: :post, :class => "btn btn-primary btn-sm" %></span><td>
+        <td><%= link_to "Save", { :controller => "saved_articles", :action => "create", :article_id => article.id }, method: :post, :class => "btn btn-primary btn-sm" %><td>
       </tr>
     <% end %>
   </tbody>

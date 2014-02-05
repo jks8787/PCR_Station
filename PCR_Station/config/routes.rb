@@ -5,4 +5,5 @@ PCRStation::Application.routes.draw do
   resources :articles
   resources :saved_articles
   resources :primers
+  resources :content
 end
