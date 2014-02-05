@@ -26,6 +26,8 @@ gem 'nokogiri'
 
 gem 'bio'
 
+gem 'high_voltage', '~> 2.1.0'
+
 gem 'rails_12factor', group: :production
 
 group :development, :test do
