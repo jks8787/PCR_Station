@@ -10,7 +10,7 @@
   <body>
     <div class="container">
     <ul class="nav nav-tabs">
-      <li class="active"><%= link_to'PCR Station Home', articles_path %></li>
+      <li><%= link_to'PCR Station Home', articles_path %></li>
       <li><%= link_to 'Detailed PCR Overview', page_path('pcr_detail')%></li>
       <li> <%= link_to 'Create Your Own Primer', new_primer_path %></li>
       <% if user_signed_in? %>
