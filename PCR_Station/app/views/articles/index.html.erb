@@ -33,12 +33,14 @@
           <tr>
             <td><%= article.title %> <br> <%= link_to "to the paper...", ("http://www.ncbi.nlm.nih.gov/pubmed/?term=" + "#{article.uid}"), :target => "_blank" %></td>
             <td class="text-justify" ><%= article.author %></td>
+            <% if user_signed_in? && User.find(current_user.id).articles.include?(Article.find(article.id) %>
+            <td>saved!<td>
+            <% else %>
             <td><%= link_to "Save", { :controller => "saved_articles", :action => "create", :article_id => article.id }, method: :post, :class => "btn btn-primary btn-sm" %><td>
+            <%end%>
           </tr>
         <% end %>
       </tbody>
     </table>
 </section>
-
-
 
