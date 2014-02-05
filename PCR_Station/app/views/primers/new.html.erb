@@ -1,14 +1,16 @@
-<h1> Generate your own primer:</h1>
+<section class="new_primer">
+	<h1> Generate your own primer:</h1>
 
-<h2>Where do primers fit in?</h2>
-<blockquote>
-<p>
-	PCR relies on thermal cycling, consisting of cycles of repeated heating and cooling of the reaction for DNA melting and enzymatic replication of the DNA. Primers (short DNA fragments) containing sequences complementary to the target region along with a DNA polymerase (after which the method is named) are key components to enable selective and repeated amplification. As PCR progresses, the DNA generated is itself used as a template for replication, setting in motion a chain reaction in which the DNA template is exponentially amplified. PCR can be extensively modified to perform a wide array of genetic manipulations.
-</p>
-</blockquote>
-
-<%= link_to 'more information...', "http://en.wikipedia.org/wiki/Polymerase_chain_reaction" %>
-
-<%= render 'form' %>
-
-
+	<h2>Where do primers fit in?</h2>
+	<blockquote>
+		<p>PCR relies on thermal cycling, consisting of cycles of repeated heating and cooling of the reaction for DNA melting and enzymatic replication of the DNA. Primers (short DNA fragments) containing sequences complementary to the target region along with a DNA polymerase (after which the method is named) are key components to enable selective and repeated amplification. As PCR progresses, the DNA generated is itself used as a template for replication, setting in motion a chain reaction in which the DNA template is exponentially amplified. PCR can be extensively modified to perform a wide array of genetic manipulations.</p>
+	</blockquote>
+	<p><%= link_to 'more information...', "http://en.wikipedia.org/wiki/Polymerase_chain_reaction", :target => "_blank" %><p>
+	<%= image_tag('primer_image.png')%>
+	<div class="new_primer_form">
+		<h2>Generate your primer:</h2>
+		<p>About the Primer you are about to generate: you will be returned the reverse complement of the sequence you enter.</p>
+		<%= render 'form' %>
+		<p>About the Primer</p>
+	</div>
+</section>

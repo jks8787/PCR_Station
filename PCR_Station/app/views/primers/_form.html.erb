@@ -11,15 +11,14 @@
     </div>
   <% end %>
   <div class="field">
-  <p>Please enter some information about this primer (example: Name of Organism, Gene of Interest, directionality (forward or reverse).</p>
+  <i>Please enter some information about this primer (example: Name of Organism, Gene of Interest, directionality (forward or reverse).</i>
     <%= f.label :note %><br>
     <%= f.text_area :note %>
   </div>
   <div class="field">
-  <p>Please enter a DNA sequence between 1 and 30 bases long ( A, T, C, G ) - this step is not case senstive.</p>
+  <i>Please enter a DNA sequence between 1 and 30 bases long ( A, T, C, G ) - this step is not case senstive.</i>
     <%= f.label :primer_seq %><br>
     <%= f.text_area :primer_seq %>
   </div>
     <%= f.submit %>
-  </div>
 <% end %>
