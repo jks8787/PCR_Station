@@ -1,45 +1,67 @@
 
 
-<p>
-  <h2>Email:</h2>
-  <%= @user.email %>
-</p>
+<section class="profile-info">
+  <h1>Email:</h1>
+  <p><%= @user.email %></p>
+</section>
 
-<p>
-<div class="panel-heading">
-<h2>Saved Articles:</h2>
-</div>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Author</th>
-        <th>Link</th>
-        <th>Remove</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @user.articles.each do |article| %>
+<section class="publications">
+  <h1>Saved Publications:</h1>
+    <div class="panel-heading">
+      <p>the papers you have saved:</p>
+    </div>
+    <table class="table">
+      <thead>
         <tr>
-          <td><%= article.title %></td>
-          <td class="text-justify" ><%= article.author %></td>
-          <td><%= link_to 'Link', ("http://www.ncbi.nlm.nih.gov/pubmed/?term=" + "#{article.uid}") %></td>
-          <td><%= link_to 'remove', edit_saved_article_path(article.id), :class => "btn btn-primary btn-sm" %></td>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Save</th>
         </tr>
+      </thead>
+      <tbody>
+        <% @user.articles.each do |article| %>
+          <tr>
+            <td><%= article.title %> <br> <%= link_to "to the paper...", ("http://www.ncbi.nlm.nih.gov/pubmed/?term=" + "#{article.uid}"), :target => "_blank" %></td>
+            <td class="text-justify" ><%= article.author %></td>
+            <td><%= link_to 'remove', edit_saved_article_path(article.id), :class => "btn btn-primary btn-sm" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+  </table>
+</section>
+
+<section class="primers-user-display">
+  <h1>Primers:</h1>
+  <p><%= link_to 'New Primer', new_primer_path, :class => "btn btn-primary btn-sm" %></p>
+  <div class="row">
+  <% @user.primers.each do |primer| %>
+    <div class="col-md-4">
+        <dl class="primers">
+        <dt>sequence:</dt>
+          <dd><%= primer.primer_seq.upcase %></dd>
+        <dt>created on:</dt>
+          <dd><%= primer.created_at.strftime("created on %m/%d/%Y") %></dd>
+        <dt>note:</dt>
+          <dd><%= primer.note %></dd>
+        <dt>more info:</dt>
+          <dd>(<%= link_to 'Details', primer %>| <%= link_to 'Edit', edit_primer_path(primer) %> | <%= link_to 'Destroy', primer, method: :delete, data: { confirm: 'Are you sure?' } %>)<dd>
+        </dl>
+      </div>
       <% end %>
-    </tbody>
-</table>
-</p>
+    </div>
+</section>
 
-<p>
-  <h2>Primers:</h2>
-    <% @user.primers.each do |primer| %>
-      <ul class="primers">
-      <li class="primer">sequence:<%= primer.primer_seq.upcase %> note: <%= primer.note %> (<%= link_to 'Details', primer %>| <%= link_to 'Edit', edit_primer_path(primer) %> | <%= link_to 'Destroy', primer, method: :delete, data: { confirm: 'Are you sure?' } %>)
-      </li>
-      </ul>
-  <% end %>
-</p>
 
-<%= link_to 'New Primer', new_primer_path, :class => "btn btn-primary btn-sm" %>
+
+
+
+
+
+
+
+
+
+
+
+
 

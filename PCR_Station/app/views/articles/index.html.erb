@@ -13,28 +13,28 @@
 </section>
 
 <section class="publications">
-<h1>Top New Publications</h1>
-  <div class="panel-heading">
-    <p>the new PubMed Publications Using a PCR method!</p>
-  </div>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Author</th>
-        <th>Save</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @articles.each do |article| %>
+  <h1>Top New Publications</h1>
+    <div class="panel-heading">
+      <p>the new PubMed Publications Using a PCR method!</p>
+    </div>
+    <table class="table">
+      <thead>
         <tr>
-          <td><%= article.title %> <br> <%= link_to "to the paper...", ("http://www.ncbi.nlm.nih.gov/pubmed/?term=" + "#{article.uid}"), :target => "_blank" %></td>
-          <td class="text-justify" ><%= article.author %></td>
-          <td><%= link_to "Save", { :controller => "saved_articles", :action => "create", :article_id => article.id }, method: :post, :class => "btn btn-primary btn-sm" %><td>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Save</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        <% @articles.each do |article| %>
+          <tr>
+            <td><%= article.title %> <br> <%= link_to "to the paper...", ("http://www.ncbi.nlm.nih.gov/pubmed/?term=" + "#{article.uid}"), :target => "_blank" %></td>
+            <td class="text-justify" ><%= article.author %></td>
+            <td><%= link_to "Save", { :controller => "saved_articles", :action => "create", :article_id => article.id }, method: :post, :class => "btn btn-primary btn-sm" %><td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 </section>
 
 
