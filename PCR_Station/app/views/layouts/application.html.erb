@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PCRStation</title>
+    <title>PCR Station</title>
     <%= stylesheet_link_tag    "application", media: "all" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
@@ -9,23 +9,36 @@
 
   <body>
     <div class="container">
-    <h1><%= link_to'PCR Station', articles_path %></h1>
+    <ul class="nav nav-tabs">
+      <li class="active"><%= link_to'PCR Station Home', articles_path %></li>
+      <li><%= link_to 'Detailed PCR Overview', page_path('pcr_detail')%></li>
+      <li> <%= link_to 'Create Your Own Primer', new_primer_path %></li>
+      <% if user_signed_in? %>
+      <li><%= link_to'Your Homepage', user_path(current_user.id) %></li>
+      <%else%>
+      <li></li>
+      <%end%>
+    </ul>
+
+    <div class="pull-right">
+      <% if user_signed_in? %>
+        | Signed in as <%= current_user.email %> |
+        | Not you? <%= link_to "sign out", destroy_user_session_path, method: :delete%> |
+      <% else %>
+       | <%= link_to "Sign Up", new_user_registration_path %> | or | <%= link_to "Sign In?", new_user_session_path %> |
+      <% end %>
+    </div>
+
+    <h1><%='PCR Station'%></h1>
 
     <%= yield %>
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-    <div id="nav">
-      <% if user_signed_in? %>
-        | Signed in as <%= current_user.email %> |
-        | <%= link_to'Your Homepage', user_path(current_user.id) %> |
-        | Not you? <%= link_to "sign out", destroy_user_session_path, method: :delete%> |
-      <% else %>
-       | <%= link_to "sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %> |
-      <% end %>
-    </div>
     </div>
   </body>
 
 </html>
+
+
