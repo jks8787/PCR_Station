@@ -5,9 +5,9 @@ class Article < ActiveRecord::Base
 	has_and_belongs_to_many :users
 	validates :uid, uniqueness: true
 
-	def self.fetch_from_api
+	def self.fetch_from_api(term)
 		uid_array = Rails.cache.fetch('esearch') do
-			uid_url = URI.parse URI.escape("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=polymerase chain reaction[mesh]+AND+real time polymerase chain reaction[mesh]+AND+2014[pdat]&usehistory=y")
+			uid_url = URI.parse URI.escape("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=#{term}[mesh]+AND+2014[pdat]&usehistory=y")
 			uid_xml_data = Net::HTTP.get_response(uid_url).body
 			uid_xml = Nokogiri::XML(uid_xml_data)
 			uid_xml.xpath("//Id").map(&:content)
