@@ -4,9 +4,9 @@
 
 <ul>
 	<li>
+	<p><%= @primer.created_at.strftime("created on %m/%d/%Y")  %></p>
 		<h3>Primer seq:</h3>
 			<p><%= @primer.primer_seq.upcase %></p>
-			<p><%= @primer.created_at.strftime("created on %m/%d/%Y")  %></p>
 	</li>
 	<li>
 		<h3>Percent GC Content:</h3>
@@ -15,8 +15,12 @@
 		<p><%= @primer.primer_seq.length %> bases </p>
 		<h3>Melting Temp:</h3>
 		<p><%= melting_temp(@primer.primer_seq) %> C </p>
+		<h3>Molecular Weight :</h3>
+		<p><%= molecular_weight(@primer.primer_seq) %> Daltons </p>
 	</li>
 <ul>
 
 | <%= link_to 'Edit', edit_primer_path(@primer) %> |
+
+
 

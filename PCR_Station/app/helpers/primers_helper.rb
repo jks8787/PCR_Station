@@ -20,4 +20,15 @@ module PrimersHelper
 		end
 	end
 
+# Molecular weightd = (329.2 * number of G's) + (313.2 * number of A's) + (304.2 * number of T's) + (289.2 * number of C's)
+# This molecular weight is adjusted by -78 for an assumed missing 5' phosphate group (PO3)
+# which is replaced by a single hydrogen and +17 for a 3′ hydroxyl . This must be adjusted by +78 if a 5′ phosphate is present.
+
+	def molecular_weight(primer_seq)
+	primer_seq = Bio::Sequence::NA.new(primer_seq)
+	counts = {'a'=>primer_seq.count('a'),'c'=>primer_seq.count('c'),'g'=>primer_seq.count('g'),'t'=>primer_seq.count('t')}
+	weight = (329.2 * counts['g']) + (313.2 * counts['a']) + (304.2 * counts['t']) + (289.2 * counts['c'])
+	return weight
+	end
+
 end
