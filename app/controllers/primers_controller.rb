@@ -26,7 +26,7 @@ class PrimersController < ApplicationController
     if @primer.primer_seq.split("").any? { |x| wrong_values.include?(x) } || primer_params[:primer_seq].blank?
       @primer.delete
       respond_to do |format|
-        format.html { redirect_to current_user, notice: 'Primer creation failed - please enter a valid DNA sequence (A,T,C,G).' }
+        format.html { redirect_to current_user, notice: 'Primer creation failed - please enter a valid DNA sequence (ATCG).' }
       end
     else
       @primer.save
