@@ -1,6 +1,6 @@
 
 <section class="publications">
-  <h1>Your Saved Publications:</h1>
+  <h1><%= image_tag('home.jpeg', :class => "wiggler")%> Your Saved Publications:</h1>
     <div class="panel-heading">
       <p>the papers you have saved:</p>
     </div>
@@ -25,7 +25,7 @@
 </section>
 
 <section class="primers-user-display">
-  <h1>Your Primers:</h1>
+  <h1><%= image_tag('home.jpeg', :class => "wiggler")%> Your Primers:</h1>
   <p><%= link_to 'New Primer', new_primer_path, :class => "btn btn-primary btn-sm" %></p>
   <div class="row">
   <% @user.primers.each do |primer| %>

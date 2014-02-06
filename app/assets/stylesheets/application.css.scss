@@ -25,3 +25,68 @@
 }
 
 
+.dna-station {
+	background-color: #428bca;
+}
+
+.dna-station-logo {
+	border: 2px solid #428bca;
+}
+
+
+#linear-grad {
+  /* default */
+  background-color: #428bca;
+  /* Safari 4-5, Chrome 1-9 */
+  background: -webkit-gradient(linear, left top, right top, from(#ffffff), to(#428bca));
+  /* Safari 5.1, Chrome 10+ */
+  background: -webkit-linear-gradient(left, #428bca, #ffffff);
+  /* Firefox 3.6+ */
+  background: -moz-linear-gradient(left, #428bca, #ffffff);
+  /* IE 10 */
+  background: -ms-linear-gradient(left, #428bca, #ffffff);
+}
+
+.wiggler:hover {
+	-webkit-animation: wiggle 0.5s infinite;
+	-moz-animation: wiggle 0.5s infinite;
+	outline: 1px solid transparent;
+	animation: wiggle 0.5s infinite;
+	border: 2px solid #428bca;
+}
+
+/* safari and chrome */
+@-webkit-keyframes wiggle {
+	0% {-webkit-transform:rotate(4deg);}
+	50% {-webkit-transform:rotate(-4deg);}
+	100% {-webkit-transform:rotate(4deg);}
+}
+
+/* firefox */
+@-moz-keyframes wiggle {
+	0% {-moz-transform:rotate(4deg);}
+	50% {-moz-transform:rotate(-4deg);}
+	100% {-moz-transform:rotate(4deg);}
+}
+
+@keyframes wiggle {
+	0% {transform:rotate(4deg);}
+	50% {transform:rotate(-4deg);}
+	100% {transform:rotate(4deg);}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
