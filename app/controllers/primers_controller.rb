@@ -23,7 +23,7 @@ class PrimersController < ApplicationController
     values3 = ["b", "d","e","f"]
     values4 = ("u".."z").to_a
     wrong_values = (values1 + values2 + values3 + values4).to_set
-    if @primer.primer_seq.split("").any? { |x| wrong_values.include?(x) }
+    if @primer.primer_seq.split("").any? { |x| wrong_values.include?(x) } || primer_params[:primer_seq].blank?
       @primer.delete
       respond_to do |format|
         format.html { redirect_to current_user, notice: 'Primer creation failed - please enter a valid DNA sequence (A,T,C,G).' }
@@ -54,15 +54,17 @@ class PrimersController < ApplicationController
   end
 
   private
-    def set_primer
-      @primer = Primer.find(params[:id])
-    end
 
-    def primer_params
-      permitted = params.require(:primer).permit(:note, :primer_seq)
-      permitted[:user_id] = current_user.id
+  def set_primer
+    @primer = Primer.find(params[:id])
+  end
+
+  def primer_params
+    permitted = params.require(:primer).permit(:note, :primer_seq)
+    permitted[:user_id] = current_user.id
       return permitted
-    end
+  end
+
 end
 
 
