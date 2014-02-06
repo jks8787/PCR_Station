@@ -1,3 +1,4 @@
+<section class="Primer_Details">
 <h1> Primer Summary Page</h1>
 <h3>Note:</h3>
 <p> <%= @primer.note %> </p>
@@ -25,8 +26,6 @@
 		<p><%= molecular_weight(@primer.primer_seq).round %> Daltons </p>
 	</li>
 <ul>
-
-<%= link_to 'Edit', edit_primer_path(@primer), :class => "btn btn-primary btn-sm" %>
-
-
+<div class="row text-center"><%= link_to 'Edit Primer', edit_primer_path(@primer), :class => "btn btn-primary btn-sm" %></div>
+</section>
 
