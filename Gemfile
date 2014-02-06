@@ -24,6 +24,8 @@ gem 'devise'
 
 gem 'nokogiri'
 
+gem 'metric_fu'
+
 gem 'bio'
 
 gem 'high_voltage', '~> 2.1.0'
