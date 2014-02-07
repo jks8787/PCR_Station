@@ -1,6 +1,6 @@
 <section class="description">
   <h1>What is PCR Station?</h1>
-    <p>PCR station is a rescoures for people to learn about and explore the polymerase chain reaction, there are now modified versions of this method which are also hugely important in their own right( such as real-time PCR) but this site will deal mainly with conventional Polymerase Chain Reaction </p>
+    <p>PCR station is a rescoures for people to learn about and explore the polymerase chain reaction, there are now modified versions of this method which are also hugely important in their own right(such as real-time PCR) but this site will deal mainly with conventional Polymerase Chain Reaction </p>
     <p>In it's Most Basic Form PCR is the method a researcher would use to amplify or make many copies of a DNA sequence for study.</p>
 </section>
 <section class="over-view">
@@ -33,7 +33,7 @@
             <td><%= article.title %> <br> <%= link_to "to the paper...", ("http://www.ncbi.nlm.nih.gov/pubmed/?term=" + "#{article.uid}"), :target => "_blank" %></td>
             <td class="text-justify" ><%= article.author %></td>
             <% if current_user_has_article_saved?(article) %>
-                <td>saved!<td>
+                <td class="saved">saved!<td>
             <% else %>
             <td><%= link_to "Save", { :controller => "saved_articles", :action => "create", :article_id => article.id }, method: :post, :class => "btn btn-primary btn-sm" %><td>
             <%end%>

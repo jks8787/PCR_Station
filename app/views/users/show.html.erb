@@ -38,7 +38,7 @@
         <dt>note:</dt>
           <dd><%= primer.note %></dd>
         <dt>more info:</dt>
-          <dd>(<%= link_to 'Details', primer %>| <%= link_to 'Edit', edit_primer_path(primer) %> | <%= link_to 'Destroy', primer, method: :delete, data: { confirm: 'Are you sure?' } %>)<dd>
+          <dd><%= link_to 'Details', primer, :class => "btn btn-primary" %> <%= link_to 'Edit', edit_primer_path(primer), :class => "btn btn-info" %> <%= link_to 'Destroy', primer, :class => "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %> <dd>
         </dl>
       </div>
       <% end %>

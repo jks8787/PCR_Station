@@ -13,12 +13,12 @@
   <div class="field">
   <i>Please enter some information about this primer (example: Name of Organism, Gene of Interest, directionality (forward or reverse).</i>
     <%= f.label :note %><br>
-    <%= f.text_area :note %>
+    <%= f.text_area :note, :class => "form-control" %>
   </div>
   <div class="field">
   <i>Please enter a DNA sequence between 1 and 30 bases long ( ATCG ) - this step is not case senstive.</i>
     <%= f.label :primer_seq %><br>
-    <%= f.text_area :primer_seq %>
+    <%= f.text_field :primer_seq, :class => "form-control"%>
   </div>
-    <p><%= f.submit "Create Primer", :class => "btn btn-primary btn-sm" %></p>
+    <p><%= f.submit "submit", :class => "btn btn-primary btn-sm" %></p>
 <% end %>

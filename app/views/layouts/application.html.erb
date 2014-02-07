@@ -31,10 +31,16 @@
 
     <h1 class="dna-station" id="linear-grad"> <%= image_tag('dna-flattened.jpg', :class => "dna-station-logo")%> <%='PCR Station'%></h1>
 
+    <% if notice %>
+      <p class="notice alert alert-success"><%= notice %></p>
+    <%end%>
+
+    <% if alert %>
+    <p class="alert alert alert-danger"><%= alert %></p>
+    <% end %>
+
     <%= yield %>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
     <div class="pull-right"><%= link_to "back to top", '#' %></div>
     </div>
   </body>
