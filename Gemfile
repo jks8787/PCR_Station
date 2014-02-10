@@ -36,8 +36,15 @@ group :development, :test do
   gem 'pry-rails'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'rspec-rails', '~> 3.0.0.beta'
+  gem 'database_cleaner'
+  gem 'shoulda-matchers'
+  gem 'guard-rspec', require: false
 end
 
 group :doc do
   gem 'sdoc', require: false
 end
+
+gem 'simplecov', require: false, group: :test
+
