@@ -16,22 +16,14 @@ class PrimersController < ApplicationController
   end
 
   def create
-    @primer = Primer.create(primer_params)
-    @primer[:primer_seq] = Bio::Sequence::NA.new(@primer.primer_seq).complement
-    values1 = ["0","1","2","3","4","5","6","7","8","9","!","@","#","$","%","^","&","*","(",")"]
-    values2 = ("h".."s").to_a
-    values3 = ["b", "d","e","f"]
-    values4 = ("u".."z").to_a
-    wrong_values = (values1 + values2 + values3 + values4).to_set
-    if @primer.primer_seq.split("").any? { |x| wrong_values.include?(x) } || primer_params[:primer_seq].blank?
-      @primer.delete
-      respond_to do |format|
-        format.html { redirect_to current_user, alert: 'Primer creation failed - please enter a valid DNA sequence (ATCG).' }
-      end
-    else
-      @primer.save
+    @primer = Primer.new(primer_params)
+    if @primer.save
       respond_to do |format|
         format.html { redirect_to current_user, notice: 'Primer was successfully created.' }
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to current_user, alert: 'Primer creation failed - please enter a valid DNA sequence (ATCG).' }
       end
     end
   end
