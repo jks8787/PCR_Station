@@ -19,11 +19,11 @@
 	<li>
 		<h3>Melting Temp:</h3>
 		<p>note that with any sequence more than 14 bases assumes that the reaction is carried out in the presence of 50mM monovalent cations </p>
-		<p><%= melting_temp(@primer.primer_seq).round %> C </p>
+		<p><%= @primer.melting_temp %> C </p>
 	</li>
 	<li>
 		<h3>Molecular Weight :</h3>
-		<p><%= molecular_weight(@primer.primer_seq).round %> Daltons </p>
+		<p><%= @primer.molecular_weight %> Daltons </p>
 	</li>
 <ul>
 <div class="row text-center"><%= link_to 'Edit Primer', edit_primer_path(@primer), :class => "btn btn-primary btn-sm" %></div>

@@ -1,6 +1,5 @@
 require 'net/http'
 require 'open-uri'
-cache = ActiveSupport::Cache::MemoryStore.new(expires_in: 60.minutes)
 class Article < ActiveRecord::Base
 	has_and_belongs_to_many :users
 	validates :uid, uniqueness: true
@@ -12,7 +11,6 @@ class Article < ActiveRecord::Base
 			uid_xml = Nokogiri::XML(uid_xml_data)
 			uid_xml.xpath("//Id").map(&:content)
 		end
-
 		articles = get_articles_info(uid_array)
 		store_articles(articles)
 	end
