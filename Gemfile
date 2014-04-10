@@ -13,6 +13,7 @@ gem 'metric_fu'
 gem 'bio'
 gem 'high_voltage', '~> 2.1.0'
 gem 'redis-rails'
+gem 'jquery-rails'
 gem 'rails_12factor', group: :production
 
 group :development, :test do
