@@ -15,5 +15,5 @@
 /log/*.log
 /tmp
 /coverage
-
+dump.rdb
 .DS_Store
